@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "platform-demo.fullname" . }}
+data:
+  ENVIRONMENT: {{ .Values.env.ENVIRONMENT | quote }}
+  GIT_COMMIT: {{ .Values.env.GIT_COMMIT | quote }}
+  BUILD_TIME: {{ .Values.env.BUILD_TIME | quote }}

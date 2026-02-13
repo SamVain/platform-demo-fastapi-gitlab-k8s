@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: platform-demo
+  tag: "local"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+env:
+  ENVIRONMENT: "local"
+  GIT_COMMIT: "dev"
+  BUILD_TIME: "dev"
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+ingress:
+  enabled: false
+  host: platform-demo.local
+  path: /
